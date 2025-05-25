@@ -1,0 +1,6 @@
+@KrishivVideoUploader_HostAddress = http://localhost:5185
+
+GET {{KrishivVideoUploader_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

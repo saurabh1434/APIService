@@ -30,6 +30,11 @@ builder.Logging.AddConsole();
 //Console.WriteLine("culture info",CultureInfo.GetCultureInfo("en-US").DisplayName);
 
 var app = builder.Build();
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    db.Database.Migrate(); // Automatically applies migration to AWS SQL
+}
 
 
 // Configure the HTTP request pipeline.
